@@ -6,6 +6,8 @@ describe Cluster do
 
   it { should have_one :planet }
   it { should have_many :moons }
-  it { should have_one :astroid_field }
+  it { should have_one :asteroid_field }
   it { should belong_to :system }
+
+  # it { should validate_uniqueness_of(:name) }
 end

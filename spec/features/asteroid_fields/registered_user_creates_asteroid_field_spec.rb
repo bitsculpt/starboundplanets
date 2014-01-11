@@ -78,7 +78,7 @@ feature "User creates an asteroid field", %q{
     end
 
     it "should not allow a second asteroid field for a cluster" do
-      FactoryGirl.create(:astroid_field, cluster: cluster)
+      FactoryGirl.create(:asteroid_field, cluster: cluster)
       visit cluster_path(cluster)
 
       expect(page).to_not have_content("Create Asteroid Field")

@@ -1,6 +1,6 @@
-class AstroidField < ActiveRecord::Base
+class AsteroidField < ActiveRecord::Base
   belongs_to :cluster,
-    inverse_of: :astroid_field
+    inverse_of: :asteroid_field
 
   validates_presence_of :name
   validates_presence_of :threat_level
