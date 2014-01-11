@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Cluster do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :system }
+
+  it { should have_many :planets }
+  it { should have_many :moons }
+  it { should have_many :asteroid_fields }
+  it { should belong_to :system }
 end

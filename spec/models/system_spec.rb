@@ -1,5 +1,14 @@
 require 'spec_helper'
 
 describe System do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :x_coord }
+  it { should validate_presence_of :y_coord }
+  it { should validate_presence_of :sector }
+
+  it { should belong_to :sector }
+  it { should have_many :clusters }
+  it { should have_many(:planets).through(:clusters) }
+  it { should have_many(:moons).through(:clusters) }
+  it { should have_many(:asteroid_fields).through(:clusters) }
 end
