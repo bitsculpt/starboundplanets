@@ -30,7 +30,7 @@ feature "User creates a system", %q{
       fill_in "Y coord", with: "82579000"
       click_on "Create System"
 
-      expect(page).to have_content("System successfully created.")
+      expect(page).to have_content("Cool! You created a system!")
       visit sector_path(sector)
       expect(page).to have_content("Alpha Alice 939")
     end
@@ -45,9 +45,9 @@ feature "User creates a system", %q{
 
       click_on "Create System"
 
-      expect(page).to have_content("Name can't be blank.")
-      expect(page).to have_content("X coord can't be blank.")
-      expect(page).to have_content("Y coord can't be blank.")
+      expect(page).to have_content("Name can't be blank")
+      expect(page).to have_content("X coord can't be blank")
+      expect(page).to have_content("Y coord can't be blank")
     end
 
     it "should give an error if x coord is not a number" do
@@ -59,7 +59,7 @@ feature "User creates a system", %q{
       fill_in "Y coord", with: "82579000"
       click_on "Create System"
 
-      expect(page).to have_content("X coord must be a number.")
+      expect(page).to have_content("X coord is not a number")
     end
 
     it "should give an error if y coord is not a number" do
@@ -71,7 +71,7 @@ feature "User creates a system", %q{
       fill_in "Y coord", with: "HELLO!"
       click_on "Create System"
 
-      expect(page).to have_content("Y coord must be a number.")
+      expect(page).to have_content("Y coord is not a number")
     end
 
     it "should give an error if system name already exists" do
@@ -84,7 +84,7 @@ feature "User creates a system", %q{
       fill_in "Y coord", with: "82579000"
       click_on "Create System"
 
-      expect(page).to have_content("#{system.name} already exists.")
+      expect(page).to have_content("Name has already been taken")
     end
 
     it "should give an error if system coordinates already exist" do
@@ -98,7 +98,7 @@ feature "User creates a system", %q{
       fill_in "Y coord", with: system.y_coord
       click_on "Create System"
 
-      expect(page).to have_content("Those coordinates already exist.")
+      expect(page).to have_content("X coord has already been taken Y coord has already been taken")
     end
 
   end

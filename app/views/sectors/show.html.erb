@@ -2,3 +2,6 @@
 
 <%= link_to "New System", new_sector_system_path(@sector), :class => "button"  %><br />
 
+<% @sector.systems.each do |system| %>
+  <p><%= system.name %></p>
+<% end %>
