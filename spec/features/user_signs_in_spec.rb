@@ -1,4 +1,4 @@
-require 'respec_helper'
+require 'spec_helper'
 
 feature 'user signs in', %q{
   As a registered user
@@ -14,21 +14,23 @@ feature 'user signs in', %q{
   let(:user) { FactoryGirl.create(:user)}
 
 
-  scenario "user logs in" do
-    visit root_path
-    click_on "Login"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Sign in"
+  context "user logs in" do
+    it "logs the user in" do
+      visit root_path
+      click_on "Log in"
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Sign in"
 
-    expect(page).to have_content("Signed in successfully")
+      expect(page).to have_content("Signed in successfully")
+    end
   end
 
-  scenario "attempts to log in with invalid information" do
+  context "attempts to log in with invalid information" do
 
     it 'user enters invalid email' do
       visit root_path
-      click_on "Login"
+      click_on "Log in"
       fill_in "Email", with: "wrongemail"
       fill_in "Password", with: user.password
       click_button "Sign in"
@@ -38,12 +40,12 @@ feature 'user signs in', %q{
 
     it 'user enters invalid password' do
       visit root_path
-      click_on "Login"
+      click_on "Log in"
       fill_in "Email", with: user.email
       fill_in "Password", with: "wrong password"
       click_button "Sign in"
 
-      expect(page).to have_content("Invalid password")
+      expect(page).to have_content("Invalid email or password")
     end
   end
 end
