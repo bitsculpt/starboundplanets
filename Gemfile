@@ -33,6 +33,9 @@ group :doc do
 end
 
 gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
 
 group :test, :development do
   gem 'factory_girl_rails'
