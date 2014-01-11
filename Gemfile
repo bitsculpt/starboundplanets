@@ -36,7 +36,10 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
-gem 'rails_12factor', group: :production
+group :production do 
+  gem 'rails_12factor'
+  gem 'unicorn'
+end
 
 group :test, :development do
   gem 'factory_girl_rails'
