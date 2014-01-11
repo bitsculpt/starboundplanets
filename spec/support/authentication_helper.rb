@@ -1,8 +1,8 @@
 module Authentication
   def sign_in_as(user)
     visit root_path
-    click_on 'Login'
-    fill_in 'Username', with: user.username
+    click_on 'Log in'
+    fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_on 'Sign in'
   end

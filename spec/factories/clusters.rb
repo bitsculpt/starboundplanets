@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :cluster do
-    name "MyString"
-    system_id 1
+    sequence :name do |n|
+      "Alpha Beta Centauri #{n}"
+    end
+
+    association :system
   end
 end

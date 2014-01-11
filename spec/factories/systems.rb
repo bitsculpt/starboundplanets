@@ -8,7 +8,7 @@ FactoryGirl.define do
     sequence :x_coord do |n|
       n
     end
-    sequence :x_coord do |n|
+    sequence :y_coord do |n|
       n
     end
 
