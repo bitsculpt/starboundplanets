@@ -24,4 +24,5 @@ class SystemsController < ApplicationController
   def system_params
     params.require(:system).permit(:name, :x_coord, :y_coord, :sector_id )
   end
+
 end

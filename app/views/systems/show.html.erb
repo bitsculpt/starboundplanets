@@ -1,0 +1,5 @@
+<%= link_to "New Cluster", new_system_cluster_path(@system), :class => "button"  %><br />
+
+<% @system.clusters.each do |cluster| %>
+  <p><%= cluster.name %></p>
+<% end %>

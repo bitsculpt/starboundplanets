@@ -43,7 +43,7 @@ feature "User creates a cluster", %q{
 
       click_on "Create Cluster"
 
-      expect(page).to have_content("Name can't be blank.")
+      expect(page).to have_content("Name can't be blank")
     end
 
     it "should give an error if cluster name already exists" do
@@ -55,7 +55,7 @@ feature "User creates a cluster", %q{
       fill_in "Name", with: cluster.name
       click_on "Create Cluster"
 
-      expect(page).to have_content("#{cluster.name} already exists.")
+      expect(page).to have_content("Name has already been taken")
     end
 
   end
