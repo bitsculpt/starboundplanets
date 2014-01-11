@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :astroid_field do
-    name "MyString"
-    cluster_id 1
+    name "Thoridon Celsiuc Klingon a"
     threat_level 1
     description "MyText"
     username "MyString"
+
+    association :cluster
   end
 end

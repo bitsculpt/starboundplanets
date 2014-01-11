@@ -9,8 +9,8 @@ feature "User creates a planet", %q{
   #   Acceptance Criteria:
   # * I can add a new planet from the cluster page
   # * I must specify biome and threat level
-  # * I can optionally
-  # * If I specify all information the cluster is added
+  # * I can optionally specify a description
+  # * If I specify all information the planet is added
   # * If I specify invalid information I get an error
 
   let(:user) { FactoryGirl.create( :user ) }
@@ -22,11 +22,6 @@ feature "User creates a planet", %q{
     sign_in_as(user)
   end
 
-
-    # t.string   "biome",        null: false
-    # t.integer  "threat_level", null: false
-    # t.integer  "cluster_id",   null: false
-    # t.text     "description"
   context "User supplies valid information" do
 
     it "should create a new planet with description" do
@@ -83,7 +78,10 @@ feature "User creates a planet", %q{
     end
 
     it "should not allow a second planet for a cluster" do
-      planet = FactoryGirl.create(:planet, cluster: cluster)
+      FactoryGirl.create(:planet, cluster: cluster)
+      visit cluster_path(cluster)
+
+      expect(page).to_not have_content("Create Planet")
     end
 
   end
