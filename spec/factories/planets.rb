@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :planet do
-    biome "MyString"
+    biome "Desert"
     threat_level 1
-    cluster_id 1
-    description "MyText"
-    username "MyString"
+    description "4VI4NS!!!"
+    username "Wiz4rd"
+
+    association :cluster
   end
 end
