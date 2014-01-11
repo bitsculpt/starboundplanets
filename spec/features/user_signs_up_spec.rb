@@ -31,7 +31,6 @@ feature 'user signs up', %q{
     it "should give an error if fields are blank" do
       visit root_path
       click_on 'Sign up'
-      save_and_open_page
       click_on 'Sign up'
 
       expect(page).to_not have_content("You have signed up successfully")
@@ -49,7 +48,7 @@ feature 'user signs up', %q{
       fill_in 'Password confirmation', with: 'password'
 
       click_on 'Sign up'
-      expect(page).to have_content("Username already exists")
+      expect(page).to have_content("Username has already been taken")
     end
 
     it 'should give an error if Email is not unique' do
