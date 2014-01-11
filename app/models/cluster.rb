@@ -1,5 +1,5 @@
 class Cluster < ActiveRecord::Base
-  has_many :asteroid_fields,
+  has_many :astroid_fields,
     inverse_of: :cluster
   has_many :planets,
     inverse_of: :cluster
