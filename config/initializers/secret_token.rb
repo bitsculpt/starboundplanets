@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Starboundplanets::Application.config.secret_key_base = '3a5f8535baf16e835d208e1792efa7a43230d58df3acf9a74eef12e753d5042733f012359a5538094c8aa129e979d391f4aeab4fe37aab4b6877f71df9e62358'
+Starboundplanets::Application.config.secret_key_base = ENV['SECRET_KEY']
