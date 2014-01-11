@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111160629) do
+ActiveRecord::Schema.define(version: 20140111172416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "astroid_fields", force: true do |t|
-    t.string   "name"
-    t.integer  "cluster_id"
-    t.integer  "threat_level"
+    t.string   "name",         null: false
+    t.integer  "cluster_id",   null: false
+    t.integer  "threat_level", null: false
     t.text     "description"
     t.string   "username"
     t.datetime "created_at"
@@ -27,17 +27,17 @@ ActiveRecord::Schema.define(version: 20140111160629) do
   end
 
   create_table "clusters", force: true do |t|
-    t.string   "name"
-    t.integer  "system_id"
+    t.string   "name",       null: false
+    t.integer  "system_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "moons", force: true do |t|
-    t.string   "name"
-    t.integer  "cluster_id"
-    t.string   "biome"
-    t.integer  "threat_level"
+    t.string   "name",         null: false
+    t.integer  "cluster_id",   null: false
+    t.string   "biome",        null: false
+    t.integer  "threat_level", null: false
     t.string   "username"
     t.text     "description"
     t.datetime "created_at"
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20140111160629) do
   end
 
   create_table "planets", force: true do |t|
-    t.string   "biome"
-    t.integer  "threat_level"
-    t.integer  "cluster_id"
+    t.string   "biome",        null: false
+    t.integer  "threat_level", null: false
+    t.integer  "cluster_id",   null: false
     t.text     "description"
     t.string   "username"
     t.datetime "created_at"
@@ -55,18 +55,38 @@ ActiveRecord::Schema.define(version: 20140111160629) do
   end
 
   create_table "sectors", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "systems", force: true do |t|
-    t.string   "name"
-    t.integer  "x_coord"
-    t.integer  "y_coord"
-    t.integer  "sector_id"
+    t.string   "name",       null: false
+    t.integer  "x_coord",    null: false
+    t.integer  "y_coord",    null: false
+    t.integer  "sector_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "username",               default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
