@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "User creates a system" %q{
+feature "User creates a system", %q{
   As a User
   I want to add a system
   So that clusters can be added to it

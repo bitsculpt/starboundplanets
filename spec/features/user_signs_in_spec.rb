@@ -17,7 +17,7 @@ feature 'user signs in', %q{
   context "user logs in" do
     it "logs the user in" do
       visit root_path
-      click_on "Login"
+      click_on "Log in"
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password
       click_button "Sign in"
@@ -30,7 +30,7 @@ feature 'user signs in', %q{
 
     it 'user enters invalid email' do
       visit root_path
-      click_on "Login"
+      click_on "Log in"
       fill_in "Email", with: "wrongemail"
       fill_in "Password", with: user.password
       click_button "Sign in"
@@ -40,12 +40,12 @@ feature 'user signs in', %q{
 
     it 'user enters invalid password' do
       visit root_path
-      click_on "Login"
+      click_on "Log in"
       fill_in "Email", with: user.email
       fill_in "Password", with: "wrong password"
       click_button "Sign in"
 
-      expect(page).to have_content("Invalid password")
+      expect(page).to have_content("Invalid email or password")
     end
   end
 end
