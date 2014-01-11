@@ -6,6 +6,6 @@ describe Cluster do
 
   it { should have_many :planets }
   it { should have_many :moons }
-  it { should have_many :asteroid_fields }
+  it { should have_many :astroid_fields }
   it { should belong_to :system }
 end
