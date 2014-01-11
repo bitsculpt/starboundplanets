@@ -12,22 +12,21 @@
       </div>
     <% end %>
 
-
 <%= form_for (@system) do |f| %>
-
 
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-
-    <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div>
+    <%= f.label :x_coord %>
+    <%= f.text_field :x_coord %>
   </div>
-
-
-
+   <div>
+    <%= f.label :y_coord %>
+    <%= f.text_field :y_coord %>
+  </div>
+  <%= f.hidden_field :sector_id, value: @sector.id %>
   <%= f.submit 'Create System' %>
 <%- end -%>
 

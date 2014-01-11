@@ -2,6 +2,7 @@ class SystemsController < ApplicationController
 
   def new
     @system = System.new
+    @sector = Sector.find(params[:sector_id])
   end
 
   def create
