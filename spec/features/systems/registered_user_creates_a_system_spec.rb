@@ -27,7 +27,7 @@ feature "User creates a system", %q{
 
       fill_in "Name", with: "Alpha Alice 939"
       fill_in "X coord", with: "-79043854"
-      fill_in "y coord", with: "82579000"
+      fill_in "Y coord", with: "82579000"
       click_on "Create System"
 
       expect(page).to have_content("System successfully created.")
@@ -56,7 +56,7 @@ feature "User creates a system", %q{
 
       fill_in "Name", with: "Alpha Alice 939"
       fill_in "X coord", with: "HELLO!"
-      fill_in "y coord", with: "82579000"
+      fill_in "Y coord", with: "82579000"
       click_on "Create System"
 
       expect(page).to have_content("X coord must be a number.")
@@ -68,7 +68,7 @@ feature "User creates a system", %q{
 
       fill_in "Name", with: "Alpha Alice 939"
       fill_in "X coord", with: "-79043854"
-      fill_in "y coord", with: "HELLO!"
+      fill_in "Y coord", with: "HELLO!"
       click_on "Create System"
 
       expect(page).to have_content("Y coord must be a number.")
@@ -79,10 +79,9 @@ feature "User creates a system", %q{
 
       visit sector_path(sector)
       click_on "New System"
-
       fill_in "Name", with: system.name
       fill_in "X coord", with: "-79043854"
-      fill_in "y coord", with: "82579000"
+      fill_in "Y coord", with: "82579000"
       click_on "Create System"
 
       expect(page).to have_content("#{system.name} already exists.")
@@ -96,7 +95,7 @@ feature "User creates a system", %q{
 
       fill_in "Name", with: "Super Awesome Secret Avian Base Wielding Planets Reside Here"
       fill_in "X coord", with: system.x_coord
-      fill_in "y coord", with: system.y_coord
+      fill_in "Y coord", with: system.y_coord
       click_on "Create System"
 
       expect(page).to have_content("Those coordinates already exist.")
