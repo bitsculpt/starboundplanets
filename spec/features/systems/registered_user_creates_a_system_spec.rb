@@ -30,6 +30,7 @@ feature "User creates a system", %q{
       fill_in "y coord", with: "82579000"
       click_on "Create System"
 
+      expect(page).to have_content("System successfully created.")
       visit sector_path(sector)
       expect(page).to have_content("Alpha Alice 939")
     end
