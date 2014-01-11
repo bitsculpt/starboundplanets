@@ -1,8 +1,8 @@
 class CreatePlanets < ActiveRecord::Migration
   def change
     create_table :planets do |t|
-      t.string :biome
-      t.integer :threat_level
+      t.string :biome,         null:false
+      t.integer :threat_level, null:false
       t.integer :cluster_id
       t.text :description
       t.string :username
