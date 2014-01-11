@@ -2,6 +2,8 @@
 
 FactoryGirl.define do
   factory :sector do
-    name "MyString"
+    sequence :name do |n|
+      "Alpha(#{n})"
+    end
   end
 end

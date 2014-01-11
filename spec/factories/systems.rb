@@ -2,9 +2,16 @@
 
 FactoryGirl.define do
   factory :system do
-    name "MyString"
-    x_coord 1
-    y_coord 1
-    sector_id 1
+    sequence :name do |n|
+      "Alpha Omega Centauri #{n}"
+    end
+    sequence :x_coord do |n|
+      n
+    end
+    sequence :x_coord do |n|
+      n
+    end
+
+    association :sector
   end
 end
