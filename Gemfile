@@ -42,6 +42,7 @@ group :test, :development do
   gem 'valid_attribute'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'launchy'
 end
 
 group :development do
