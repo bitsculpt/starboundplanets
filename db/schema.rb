@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20140111160629) do
   end
 
   create_table "planets", force: true do |t|
-    t.string   "biome",        null: false
-    t.integer  "threat_level", null: false
+    t.string   "biome"
+    t.integer  "threat_level"
     t.integer  "cluster_id"
     t.text     "description"
     t.string   "username"
