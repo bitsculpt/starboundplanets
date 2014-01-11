@@ -10,8 +10,13 @@ class SystemsController < ApplicationController
     if @system.save
       redirect_to system_path(@system), notice: 'Cool! You created a system!'
     else
-      render :new
+      @sector = Sector.find(@system.sector_id)
+      render "new"
     end
+  end
+
+  def show
+    @system = System.find(params[:id])
   end
 
   private
