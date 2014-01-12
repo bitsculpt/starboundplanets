@@ -23,7 +23,9 @@ class PlanetsController < ApplicationController
     params.require(:planet).permit(:biome, :threat_level, :username, :description, :cluster_id )
   end
 
-
+  def index
+    @planets = Planet.all
+  end
 
 end
 

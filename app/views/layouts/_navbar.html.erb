@@ -1,13 +1,15 @@
-<%= nav_bar :fixed => :top, :brand => "Starbound", responsive: true do %>
+<%= nav_bar :fixed => :top, :brand => "Starbound Planets", responsive: true do %>
     <% menu_group do %>
         <%= menu_item "Home", root_path %>
     <% end %>
-    <% if current_user %>
-        <% menu_group :pull => :right do %>
-            <%= menu_item "Log Out", destroy_user_session_path, method: :delete %>
-        <% end %>
-    <% else %>
-        <% menu_group :pull => :right do %>
+    <% menu_group pull: :right do %>
+        <% if current_user %>
+            <%= drop_down current_user.username do %>
+                <%= menu_item "Profile", user_path(current_user) %>
+                <%= menu_item "Edit", edit_user_registration_path %>
+                <%= menu_item "Log Out", destroy_user_session_path, method: :delete %>
+            <% end %>
+        <% else %>
             <%= menu_item "Sign Up", new_user_registration_path %>
             <%= menu_item "Log in", user_session_path %>
         <% end %>

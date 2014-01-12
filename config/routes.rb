@@ -1,6 +1,7 @@
 Starboundplanets::Application.routes.draw do
   devise_for :users
 
+  resources :users, only: [:show]
   resources :sectors, :systems, :clusters, :asteroid_fields, :moons, :planets
 
   get 'sector/:sector_id/new', to: 'systems#new', as: 'new_sector_system'
