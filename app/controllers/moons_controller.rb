@@ -11,6 +11,7 @@ class MoonsController < ApplicationController
 
   def create
     @moon = Moon.new(moon_params)
+    @moon.username = current_user.username
     if @moon.save
       redirect_to moon_path(@moon), notice: 'Cool! You created a moon!'
     else
