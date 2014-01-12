@@ -8,9 +8,9 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:biome) %></th>
       <th><%= model_class.human_attribute_name(:threat_level) %></th>
-      <th><%= model_class.human_attribute_name(:cluster_id) %></th>
+      <th>Sector</th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:username) %></th>
+      <th>Added By</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= link_to planet.id, planet_path(planet) %></td>
         <td><%= planet.biome %></td>
         <td><%= planet.threat_level %></td>
-        <td><%= planet.cluster.name %></td>
+        <td><%= planet.cluster.system.sector.name %></td>
         <td><%= planet.description %></td>
         <td><%= planet.username %></td>
         <td><%=l planet.created_at %></td>
