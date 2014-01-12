@@ -1,0 +1,3 @@
+<% if @cluster.asteroid_field.nil? %>
+  <%= link_to "Create Asteroid Field", new_cluster_asteroid_field_path(@cluster) %>
+<% end %>
