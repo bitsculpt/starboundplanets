@@ -29,13 +29,11 @@ feature "User creates a planet", %q{
       click_on "Create Planet"
 
       select 'Desert', from: 'Biome'
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Planet"
 
-      expect(page).to have_content("Planet successfully created.")
-      visit cluster_path(cluster)
-      expect(page).to have_content("Description: Best avian base ever!")
+      expect(page).to have_content("Cool! You created a planet!")
     end
 
     it "should create a new planet without description" do
@@ -43,12 +41,10 @@ feature "User creates a planet", %q{
       click_on "Create Planet"
 
       select 'Desert', from: 'Biome'
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       click_on "Create Planet"
 
-      expect(page).to have_content("Planet successfully created.")
-      visit cluster_path(cluster)
-      expect(page).to have_content("Description: None")
+      expect(page).to have_content("Cool! You created a planet!")
     end
 
   end
@@ -59,11 +55,11 @@ feature "User creates a planet", %q{
       visit cluster_path(cluster)
       click_on "Create Planet"
 
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Planet"
 
-      expect(page).to have_content("Biome can't be blank.")
+      expect(page).to have_content("Biome can't be blank")
     end
 
     it "should give an error if threat level field is blank" do
@@ -74,7 +70,7 @@ feature "User creates a planet", %q{
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Planet"
 
-      expect(page).to have_content("Threat level can't be blank.")
+      expect(page).to have_content("Threat level can't be blank")
     end
 
     it "should not allow a second planet for a cluster" do
