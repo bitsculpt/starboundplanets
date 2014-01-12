@@ -1,0 +1,31 @@
+<%- model_class = Planet -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:biome) %></th>
+      <th><%= model_class.human_attribute_name(:threat_level) %></th>
+      <th><%= model_class.human_attribute_name(:cluster_id) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:username) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @planets.each do |planet| %>
+      <tr>
+        <td><%= link_to planet.id, planet_path(planet) %></td>
+        <td><%= planet.biome %></td>
+        <td><%= planet.threat_level %></td>
+        <td><%= planet.cluster.name %></td>
+        <td><%= planet.description %></td>
+        <td><%= planet.username %></td>
+        <td><%=l planet.created_at %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

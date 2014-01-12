@@ -19,12 +19,18 @@ class PlanetsController < ApplicationController
     end
   end
 
-  def planet_params
-    params.require(:planet).permit(:biome, :threat_level, :username, :description, :cluster_id )
-  end
-
   def index
     @planets = Planet.all
+  end
+
+  def show
+    @planet = Planet.find(params[:id])
+  end
+
+  private
+
+  def planet_params
+    params.require(:planet).permit(:biome, :threat_level, :username, :description, :cluster_id )
   end
 
 end
