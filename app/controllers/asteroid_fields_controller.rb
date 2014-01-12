@@ -1,8 +1,12 @@
 class AsteroidFieldsController < ApplicationController
 
   def new
-    @asteroid_field = AsteroidField.new
-    @cluster = Cluster.find(params[:cluster_id])
+    if user_signed_in?
+      @asteroid_field = AsteroidField.new
+      @cluster = Cluster.find(params[:cluster_id])
+    else
+      redirect_to root_path
+    end
   end
 
   def create
