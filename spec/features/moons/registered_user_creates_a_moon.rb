@@ -30,13 +30,11 @@ feature "User creates a moon", %q{
 
       fill_in "Name", with: "George Foreman"
       select 'Desert', from: 'Biome'
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Moon"
 
-      expect(page).to have_content("Moon successfully created.")
-      visit cluster_path(cluster)
-      expect(page).to have_content("Description: Best avian base ever!")
+      expect(page).to have_content("Cool! You created a moon!")
     end
 
     it "should create a new moon without description" do
@@ -45,12 +43,10 @@ feature "User creates a moon", %q{
 
       fill_in "Name", with: "George Foreman"
       select 'Desert', from: 'Biome'
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       click_on "Create Moon"
 
-      expect(page).to have_content("Moon successfully created.")
-      visit cluster_path(cluster)
-      expect(page).to have_content("Description: None")
+      expect(page).to have_content("Cool! You created a moon!")
     end
 
   end
@@ -62,11 +58,11 @@ feature "User creates a moon", %q{
       click_on "New Moon"
 
       fill_in "Name", with: "George Foreman"
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Moon"
 
-      expect(page).to have_content("Biome can't be blank.")
+      expect(page).to have_content("Biome can't be blank")
     end
 
     it "should give an error if threat level field is blank" do
@@ -78,19 +74,19 @@ feature "User creates a moon", %q{
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Moon"
 
-      expect(page).to have_content("Threat level can't be blank.")
+      expect(page).to have_content("Threat level can't be blank")
     end
 
     it "should give an error if name field is blank" do
       visit cluster_path(cluster)
       click_on "New Moon"
 
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       select 'Desert', from: 'Biome'
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Moon"
 
-      expect(page).to have_content("Nme can't be blank.")
+      expect(page).to have_content("Name can't be blank")
     end
 
 
@@ -101,10 +97,10 @@ feature "User creates a moon", %q{
 
       fill_in "Name", with: moon.name
       select 'Desert', from: 'Biome'
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       click_on "Create Moon"
 
-      expect(page).to_not have_content("#{moon.name} already exists.")
+      expect(page).to have_content("Name has already been taken")
     end
 
   end
