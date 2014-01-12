@@ -1,8 +1,12 @@
 class MoonsController < ApplicationController
 
   def new
-    @moon = Moon.new
-    @cluster = Cluster.find(params[:cluster_id])
+    if user_signed_in?
+      @moon = Moon.new
+      @cluster = Cluster.find(params[:cluster_id])
+    else
+      redirect_to root_path
+    end
   end
 
   def create
