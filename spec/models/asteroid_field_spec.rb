@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AstroidField do
+describe AsteroidField do
   let(:blank) { [nil, ""] }
 
   it { should belong_to(:cluster) }

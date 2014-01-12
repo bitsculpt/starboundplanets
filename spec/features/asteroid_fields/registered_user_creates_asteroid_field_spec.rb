@@ -29,13 +29,11 @@ feature "User creates an asteroid field", %q{
       click_on "Create Asteroid Field"
 
       fill_in "Name", with: "Hemmer Oid"
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Asteroid Field"
 
-      expect(page).to have_content("Asteroid field successfully created.")
-      visit cluster_path(cluster)
-      expect(page).to have_content("Description: Best avian base ever!")
+      expect(page).to have_content("Cool! You created an asteroid field!")
     end
 
     it "should create a new asteroid field without description" do
@@ -43,12 +41,10 @@ feature "User creates an asteroid field", %q{
       click_on "Create Asteroid Field"
 
       fill_in "Name", with: "Hemmer Oid"
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       click_on "Create Asteroid Field"
 
-      expect(page).to have_content("Asteroid field successfully created.")
-      visit cluster_path(cluster)
-      expect(page).to have_content("Description: None")
+      expect(page).to have_content("Cool! You created an asteroid field!")
     end
 
   end
@@ -63,22 +59,22 @@ feature "User creates an asteroid field", %q{
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Asteroid Field"
 
-      expect(page).to have_content("Threat level can't be blank.")
+      expect(page).to have_content("Threat level can't be blank")
     end
 
     it "should give an error if name field is blank" do
       visit cluster_path(cluster)
       click_on "Create Asteroid Field"
 
-      select '1', from: 'Threat Level'
+      select '1', from: 'Threat level'
       fill_in 'Description', with: "Best avian base ever!"
       click_on "Create Asteroid Field"
 
-      expect(page).to have_content("Name can't be blank.")
+      expect(page).to have_content("Name can't be blank")
     end
 
     it "should not allow a second asteroid field for a cluster" do
-      FactoryGirl.create(:astroid_field, cluster: cluster)
+      FactoryGirl.create(:asteroid_field, cluster: cluster)
       visit cluster_path(cluster)
 
       expect(page).to_not have_content("Create Asteroid Field")
