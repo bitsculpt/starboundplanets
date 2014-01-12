@@ -1,0 +1,32 @@
+<h1>Add A Planet</h1>
+
+  <% if @planet.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@planet.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+        <ul>
+        <% @planet.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+<%= form_for (@planet) do |f| %>
+
+  <div>
+    <%= f.label :biome %>
+   <%= f.select :biome, SpaceJunk.biomes, include_blank: true %>
+  </div>
+  
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+   <div>
+    <%= f.label :threat_level %>
+   <%= f.select :threat_level, SpaceJunk.threat_levels, include_blank: true %>
+  </div>
+  <%= f.hidden_field :cluster_id, value: @cluster.id %>
+  <%= f.submit 'Create Planet' %>
+<%- end -%>
+
