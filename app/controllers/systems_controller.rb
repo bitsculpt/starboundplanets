@@ -1,4 +1,4 @@
-class SystemsController < ApplicationController
+class SystemsController < AuthenticatedController
 
   def new
     @system = System.new

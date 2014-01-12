@@ -1,5 +1,4 @@
-class SectorsController < ApplicationController
-
+class SectorsController < AuthenticatedController
 
   def show
     @sector = Sector.find(params[:id])

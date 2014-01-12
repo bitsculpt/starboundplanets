@@ -1,4 +1,4 @@
-class ClustersController < ApplicationController
+class ClustersController < AuthenticatedController
 
   def new
     @cluster = Cluster.new
