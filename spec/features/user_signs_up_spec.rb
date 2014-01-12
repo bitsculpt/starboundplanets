@@ -13,7 +13,7 @@ feature 'user signs up', %q{
 
     it "should create a new user" do
       visit root_path
-      click_on "Sign up"
+      click_on "Sign Up"
       fill_in 'Username', with: 'Starboundy'
       fill_in 'Email', with: 'dave@example.com'
       fill_in 'Password', with: 'mypassword', exact: true
@@ -30,7 +30,7 @@ feature 'user signs up', %q{
 
     it "should give an error if fields are blank" do
       visit root_path
-      click_on 'Sign up'
+      click_on 'Sign Up'
       click_on 'Sign up'
 
       expect(page).to_not have_content("You have signed up successfully")
@@ -41,7 +41,7 @@ feature 'user signs up', %q{
     it 'should give an error if Username is not unique' do
       user = FactoryGirl.create(:user)
       visit root_path
-      click_on 'Sign up'
+      click_on 'Sign Up'
       fill_in  'Username', with: user.username
       fill_in 'Email', with: 'mail@email.com'
       fill_in 'Password', with: 'password'
@@ -54,7 +54,7 @@ feature 'user signs up', %q{
     it 'should give an error if Email is not unique' do
       user = FactoryGirl.create(:user)
       visit root_path
-      click_on 'Sign up'
+      click_on 'Sign Up'
       fill_in 'Email', with: user.email
       fill_in 'Username', with: "Name"
       fill_in 'Password', with: 'password'
@@ -67,7 +67,7 @@ feature 'user signs up', %q{
 
     it 'should give an error if password confirmation does not match initial password' do
       visit root_path
-      click_on 'Sign up'
+      click_on 'Sign Up'
       fill_in 'Username', with: "Name"
       fill_in 'Email', with: 'bob@example.com'
       fill_in 'Password', with: 'mypassword', exact: true

@@ -11,6 +11,7 @@ class AsteroidFieldsController < ApplicationController
 
   def create
     @asteroid_field = AsteroidField.new(asteroid_field_params)
+    @asteroid_field.username = current_user.username
     if @asteroid_field.save
       redirect_to asteroid_field_path(@asteroid_field), notice: 'Cool! You created an asteroid field!'
     else

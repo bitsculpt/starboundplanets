@@ -11,6 +11,7 @@ class PlanetsController < ApplicationController
 
   def create
     @planet = Planet.new(planet_params)
+    @planet.username = current_user.username
     if @planet.save
       redirect_to planet_path(@planet), notice: 'Cool! You created a planet!'
     else
@@ -19,11 +20,19 @@ class PlanetsController < ApplicationController
     end
   end
 
+  def index
+    @planets = Planet.all
+  end
+
+  def show
+    @planet = Planet.find(params[:id])
+  end
+
+  private
+
   def planet_params
     params.require(:planet).permit(:biome, :threat_level, :username, :description, :cluster_id )
   end
-
-
 
 end
 
