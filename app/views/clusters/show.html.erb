@@ -1,0 +1,4 @@
+<% if @cluster.planet.nil? %>
+
+<%= link_to "Create Planet", new_cluster_planet_path(@cluster), :class => "button" %><br />
+<% end %>
