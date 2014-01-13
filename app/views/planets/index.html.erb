@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Name</th>
       <th><%= model_class.human_attribute_name(:biome) %></th>
       <th><%= model_class.human_attribute_name(:threat_level) %></th>
       <th>Sector</th>
@@ -17,7 +17,7 @@
   <tbody>
     <% @planets.each do |planet| %>
       <tr>
-        <td><%= link_to planet.id, planet_path(planet) %></td>
+        <td><%= link_to planet.cluster.name, planet_path(planet) %></td>
         <td><%= planet.biome %></td>
         <td><%= planet.threat_level %></td>
         <td><%= planet.cluster.system.sector.name %></td>
