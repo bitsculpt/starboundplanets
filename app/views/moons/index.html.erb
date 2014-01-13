@@ -20,7 +20,7 @@
         <td><%= link_to moon.cluster.name, moon_path(moon) %></td>
         <td><%= moon.biome %></td>
         <td><%= moon.threat_level %></td>
-        <td><%= moon.cluster.system.sector.name %></td>
+        <td><%= link_to moon.cluster.system.sector.name sector_path(moon) %></td>
         <td><%= moon.description %></td>
         <td><%= moon.username %></td>
         <td><%=l moon.created_at %></td>
