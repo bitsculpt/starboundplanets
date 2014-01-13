@@ -9,6 +9,11 @@ class AsteroidFieldsController < ApplicationController
     end
   end
 
+  def index
+    @asteroid_fields = AsteroidField.all
+  end
+
+
   def create
     @asteroid_field = AsteroidField.new(asteroid_field_params)
     @asteroid_field.username = current_user.username

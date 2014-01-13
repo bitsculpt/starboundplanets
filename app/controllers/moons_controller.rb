@@ -8,6 +8,10 @@ class MoonsController < ApplicationController
       redirect_to root_path
     end
   end
+  
+  def index
+    @moons = Moon.all
+  end
 
   def create
     @moon = Moon.new(moon_params)

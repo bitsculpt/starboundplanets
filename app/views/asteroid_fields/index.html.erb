@@ -1,0 +1,31 @@
+<%- model_class = AsteroidField -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th><%= model_class.human_attribute_name(:biome) %></th>
+      <th><%= model_class.human_attribute_name(:threat_level) %></th>
+      <th>Sector</th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th>Added By</th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @asteroid_fields.each do |asteroids| %>
+      <tr>
+        <td><%= link_to asteroids.cluster.name, asteroids_path(asteroids) %></td>
+        <td><%= asteroids.biome %></td>
+        <td><%= asteroids.threat_level %></td>
+        <td><%= asteroids.cluster.system.sector.name %></td>
+        <td><%= asteroids.description %></td>
+        <td><%= asteroids.username %></td>
+        <td><%=l asteroids.created_at %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
