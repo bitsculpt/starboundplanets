@@ -17,7 +17,7 @@
   <tbody>
     <% @asteroid_fields.each do |asteroids| %>
       <tr>
-        <td><%= link_to asteroids.cluster.name, asteroids_path(asteroids) %></td>
+        <td><%= link_to asteroids.cluster.name, asteroid_fields_path(asteroids) %></td>
         <td><%= asteroids.biome %></td>
         <td><%= asteroids.threat_level %></td>
         <td><%= asteroids.cluster.system.sector.name %></td>
