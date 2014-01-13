@@ -20,7 +20,7 @@
         <td><%= link_to planet.cluster.name, planet_path(planet) %></td>
         <td><%= planet.biome %></td>
         <td><%= planet.threat_level %></td>
-        <td><%= link_to planet.cluster.system.sector.name, sector_path(planet) %></td>
+        <td><%= link_to planet.cluster.system.sector.name, sector_path(planet.cluster.system.sector) %></td>
         <td><%= planet.description %></td>
         <td><%= planet.username %></td>
         <td><%=l planet.created_at %></td>
