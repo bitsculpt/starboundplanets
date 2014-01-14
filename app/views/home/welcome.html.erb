@@ -6,16 +6,16 @@
 
 <%= render 'last4planets' %> 
 
-<%= link_to "View all the Planets",  planets_path %> <br>
+<button type="button" class="btn btn-primary"><%= link_to "View all the Planets",  planets_path, :class => "btn btn-primary" %></button> <br>
 
 <h2> Last 4 Moons </h2>
 
 <%= render 'last4moons' %> <br>
 
-<%= link_to "View all the Moons", moons_path %> <br>
+<button type="button" class="btn btn-primary"><%= link_to "View all the Moons", moons_path, :class => "btn btn-primary" %></button><br>
 
 <h2> Last 4 Asteroid Fields </h2>
 
 <%= render 'last4asteroid_fields' %>
 
-<%= link_to "View all the Asteroid Fields", asteroid_fields_path %>
+<button type="button" class="btn btn-primary"><%= link_to "View all the Asteroid Fields", asteroid_fields_path, :class => "btn btn-primary" %></button>

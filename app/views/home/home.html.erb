@@ -1,27 +1,28 @@
 <h1> Welcome to Starbound Planets <%= current_user.username %> </h1>
 
 
-<%= link_to "Add Alpha System", '/sector/1/new', :class => "button"  %><br />
-<%= link_to "Add Beta System", '/sector/2/new', :class => "button"  %><br />
-<%= link_to "Add Gamma System", '/sector/3/new', :class => "button"  %><br />
-<%= link_to "Add Delta System", '/sector/4/new', :class => "button"  %><br />
-<%= link_to "Add X System", '/sector/5/new', :class => "button"  %><br />
+<%= link_to "Add Alpha Planet, Moon, or Asteroid", '/sector/1/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add Beta Planet, Moon, or Asteroid ", '/sector/2/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add Gamma Planet, Moon, or Asteroid ", '/sector/3/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add Delta Planet, Moon, or Asteroid ", '/sector/4/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add X Planet, Moon, or Asteroid ", '/sector/5/new', :class => "btn btn-primary"  %><br />
+
 
 
 <h2> Last 4 Planets </h2>
 
 <%= render 'last4planets' %> 
 
-<%= link_to "View all the Planets",  planets_path %> <br>
+<button type="button" class="btn btn-primary"><%= link_to "View all the Planets",  planets_path, :class => "btn btn-primary" %></button> <br>
 
 <h2> Last 4 Moons </h2>
 
 <%= render 'last4moons' %> <br>
 
-<%= link_to "View all the Moons", moons_path %> <br>
+<button type="button" class="btn btn-primary"><%= link_to "View all the Moons", moons_path, :class => "btn btn-primary" %></button><br>
 
 <h2> Last 4 Asteroid Fields </h2>
 
 <%= render 'last4asteroid_fields' %>
 
-<%= link_to "View all the Asteroid Fields", asteroid_fields_path %>
+<button type="button" class="btn btn-primary"><%= link_to "View all the Asteroid Fields", asteroid_fields_path, :class => "btn btn-primary" %></button>
