@@ -20,7 +20,7 @@
         <td><%= moon.biome %></td>
         <td><%= moon.threat_level %></td>
         <td><%= link_to moon.cluster.system.sector.name, sector_path(moon.cluster.system.sector) %></td>
-        <td><%= moon.description %></td>
+        <td><%= truncate(moon.description, :length => 50) %></td>
         <td><%= moon.username %></td>
         <td><p><%= time_ago_in_words(moon.created_at)  %> ago</p> </td>
         <td><%= link_to moon.cluster.system.x_coord, system_path(moon.cluster.system) %></td>
