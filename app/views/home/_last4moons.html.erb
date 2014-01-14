@@ -1,0 +1,32 @@
+<%- model_class = Moon -%>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th><%= model_class.human_attribute_name(:biome) %></th>
+      <th><%= model_class.human_attribute_name(:threat_level) %></th>
+      <th>Sector</th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th>Added By</th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>X Coord</th>
+      <th>Y Coord</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @moons.each do |moon| %>
+      <tr>
+        <td><%= link_to moon.cluster.name, moon_path(moon) %></td>
+        <td><%= moon.biome %></td>
+        <td><%= moon.threat_level %></td>
+        <td><%= link_to moon.cluster.system.sector.name, sector_path(moon.cluster.system.sector) %></td>
+        <td><%= moon.description %></td>
+        <td><%= moon.username %></td>
+        <td><%=l moon.created_at %></td>
+        <td><%= link_to moon.cluster.system.x_coord, system_path(moon.cluster.system) %></td>
+        <td><%= link_to moon.cluster.system.y_coord, system_path(moon.cluster.system) %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

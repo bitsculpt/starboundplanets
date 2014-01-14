@@ -1,0 +1,30 @@
+<%- model_class = AsteroidField -%>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th><%= model_class.human_attribute_name(:threat_level) %></th>
+      <th>Sector</th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th>Added By</th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>X Coord</th>
+      <th>Y coord</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @asteroid_fields.each do |asteroids| %>
+      <tr>
+        <td><%= link_to asteroids.cluster.name, asteroid_field_path(asteroids) %></td>
+        <td><%= asteroids.threat_level %></td>
+        <td><%= link_to asteroids.cluster.system.sector.name, sector_path(asteroids.cluster.system.sector) %></td>
+        <td><%= asteroids.description %></td>
+        <td><%= asteroids.username %></td>
+        <td><%=l asteroids.created_at %></td>
+        <td><%= link_to asteroids.cluster.system.x_coord, system_path(asteroids.cluster.system) %></td>
+        <td><%= link_to asteroids.cluster.system.y_coord, system_path(asteroids.cluster.system) %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
