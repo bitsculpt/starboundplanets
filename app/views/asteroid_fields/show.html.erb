@@ -1,0 +1,17 @@
+<%- model_class = AsteroidField -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @asteroid_field.cluster.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:threat_level) %>:</strong></dt>
+  <dd><%= @asteroid_field.threat_level %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @asteroid_field.description %></dd>
+  <dt><strong>X Coord:</strong></dt>
+  <dd><%= @asteroid_field.cluster.system.x_coord %></dd>
+  <dt><strong>Y Coord:</strong></dt>
+  <dd><%= @asteroid_field.cluster.system.y_coord %></dd>
+</dl>
