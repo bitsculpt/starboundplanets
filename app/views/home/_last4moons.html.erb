@@ -22,7 +22,7 @@
         <td><%= link_to moon.cluster.system.sector.name, sector_path(moon.cluster.system.sector) %></td>
         <td><%= moon.description %></td>
         <td><%= moon.username %></td>
-        <td><%=l moon.created_at %></td>
+        <td><p><%= time_ago_in_words(moon.created_at)  %> ago</p> </td>
         <td><%= link_to moon.cluster.system.x_coord, system_path(moon.cluster.system) %></td>
         <td><%= link_to moon.cluster.system.y_coord, system_path(moon.cluster.system) %></td>
         </td>

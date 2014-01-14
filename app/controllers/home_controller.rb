@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       @planets = Planet.all.order(created_at: :asc).limit(4)
       @moons =   Moon.all.order(created_at: :asc).limit(4)
       @asteroid_fields = AsteroidField.all.order(created_at: :asc).limit(4)
-      render action: :home
+      #render action: :home
     else
       @planets = Planet.all.order(created_at: :asc).limit(4)
       @moons =   Moon.all.order(created_at: :asc).limit(4)
@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   end
 
   def home
- 
+ binding.pry
   end
 
 end

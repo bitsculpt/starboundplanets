@@ -9,9 +9,9 @@
       <th><%= model_class.human_attribute_name(:biome) %></th>
       <th><%= model_class.human_attribute_name(:threat_level) %></th>
       <th>Sector</th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th>Description</th>
       <th>Added By</th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Created At</th>
       <th>X Coord</th>
       <th>Y Coord</th>
     </tr>
@@ -25,7 +25,7 @@
         <td><%= link_to planet.cluster.system.sector.name, sector_path(planet.cluster.system.sector) %></td>
         <td><%= planet.description %></td>
         <td><%= planet.username %></td>
-        <td><%=l planet.created_at %></td>
+        <td><%= time_ago_in_words(planet.created_at) %> ago</td>
         <td><%= link_to planet.cluster.system.x_coord, system_path(planet.cluster.system) %></td>
         <td><%= link_to planet.cluster.system.y_coord, system_path(planet.cluster.system) %></td>
         </td>

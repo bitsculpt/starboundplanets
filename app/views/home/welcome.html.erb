@@ -1,8 +1,14 @@
+<% if user_signed_in? %>
+<div class="jumbotron">
+  <h1> Welcome to Starbound Planets, <%= current_user.username %></h1>
+  <p>Use this site to keep track of your favorite planets, moons, and asteroids and share them with the community!  Click the links below to get started adding to the list!</p>
+</div>
+<% else %>
 <div class="jumbotron">
   <h1> Welcome to Starbound Planets</h1>
   <p>Use this site to keep track of your favorite planets, moons, and asteroids and share them with the community!</p>
 </div>
-
+<% end %>
 
 
 
