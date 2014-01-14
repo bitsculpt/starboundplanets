@@ -27,6 +27,22 @@ class PlanetsController < ApplicationController
   def show
     @planet = Planet.find(params[:id])
   end
+  
+  def edit
+    @planet = Planet.find(params[:id])
+  end
+
+  def update
+    @planet = Planet.find(params[:id])
+
+    if @planet.update(planet_params)
+      redirect_to @planet
+    else
+      render 'edit'
+    end
+  end
+
+
 
   private
 

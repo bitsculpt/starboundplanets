@@ -15,3 +15,8 @@
   <dt><strong>Y Coord:</strong></dt>
   <dd><%= @asteroid_field.cluster.system.y_coord %></dd>
 </dl>
+<% if user_signed_in? and current_user.username == @asteroid_field.username %>
+<%= link_to "Edit this Asteroid Field", edit_asteroid_field_path %>
+<% else %>
+<p> Login to your account to edit this asteroid field ( if it belongs to you!) </p>
+<% end %>

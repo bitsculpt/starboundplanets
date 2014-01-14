@@ -29,6 +29,20 @@ class AsteroidFieldsController < ApplicationController
     @asteroid_field = AsteroidField.find(params[:id])
   end
 
+  def edit
+    @asteroid_field = AsteroidField.find(params[:id])
+  end
+
+  def update
+    @asteroid_field = AsteroidField.find(params[:id])
+
+    if @asteroid_field.update(asteroid_field_params)
+      redirect_to @asteroid_field
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def asteroid_field_params

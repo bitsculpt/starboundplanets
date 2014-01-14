@@ -20,7 +20,7 @@
         <td><%= link_to asteroids.cluster.system.sector.name, sector_path(asteroids.cluster.system.sector) %></td>
         <td><%= truncate(asteroids.description, :length => 50) %></td>
         <td><%= asteroids.username %></td>
-        <td><%=l asteroids.created_at %></td>
+        <td><%= time_ago_in_words(asteroids.created_at) %> ago</td>
         <td><%= link_to asteroids.cluster.system.x_coord, system_path(asteroids.cluster.system) %></td>
         <td><%= link_to asteroids.cluster.system.y_coord, system_path(asteroids.cluster.system) %></td>
         </td>

@@ -28,6 +28,19 @@ class MoonsController < ApplicationController
     @moon = Moon.find(params[:id])
   end
 
+  def edit
+    @moon = Moon.find(params[:id])
+  end
+
+  def update
+    @moon = Moon.find(params[:id])
+
+    if @moon.update(moon_params)
+      redirect_to @moon
+    else
+      render 'edit'
+    end
+  end
 
   private
 

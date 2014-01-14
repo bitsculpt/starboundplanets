@@ -1,0 +1,31 @@
+<h1>Editing Planet</h1>
+ 
+<%= form_for :planet, url: planet_path(@planet), method: :patch do |f| %>
+  <% if @planet.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@planet.errors.count, "error") %> prohibited
+      this planet from being saved:</h2>
+    <ul>
+    <% @planet.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :biome %><br>
+    <%= f.text_field :biome %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :threat_level %><br>
+    <%= f.text_area :threat_level %>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 

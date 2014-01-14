@@ -1,0 +1,30 @@
+<h1>Editing Asteroid Field</h1>
+ 
+<%= form_for :asteroid_field, url: asteroid_field_path(@asteroid_field), method: :patch do |f| %>
+  <% if @asteroid_field.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@asteroid_field.errors.count, "error") %> prohibited
+      this asteroid field from being saved:</h2>
+    <ul>
+    <% @asteroid_field.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :threat_level %><br>
+    <%= f.text_area :threat_level %>
+    <%= f.submit %>
+  </p>
+<% end %>

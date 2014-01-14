@@ -1,0 +1,34 @@
+<h1>Editing Moon</h1>
+ 
+<%= form_for :moon, url: moon_path(@moon), method: :patch do |f| %>
+  <% if @moon.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@moon.errors.count, "error") %> prohibited
+      this moon from being saved:</h2>
+    <ul>
+    <% @moon.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :biome %><br>
+    <%= f.text_field :biome %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :threat_level %><br>
+    <%= f.text_area :threat_level %>
+    <%= f.submit %>
+  </p>
+<% end %>
