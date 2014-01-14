@@ -24,7 +24,7 @@
 
   <p>
     <%= f.label :threat_level %><br>
-    <%= f.text_area :threat_level %>
+    <%= f.select :threat_level, SpaceJunk.threat_levels, :include_blank => true %>
     <%= f.submit %>
   </p>
 <% end %>

@@ -18,7 +18,7 @@
   </p>
   <p>
     <%= f.label :biome %><br>
-    <%= f.text_field :biome %>
+    <%= f.select :biome, SpaceJunk.biomes, :include_blank => true %>
   </p>
  
   <p>
@@ -28,7 +28,7 @@
 
   <p>
     <%= f.label :threat_level %><br>
-    <%= f.text_area :threat_level %>
+    <%= f.select :threat_level, SpaceJunk.threat_levels, :include_blank => true %>
     <%= f.submit %>
   </p>
 <% end %>
