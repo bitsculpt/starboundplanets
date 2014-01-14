@@ -16,7 +16,7 @@
   <tbody>
     <% @moons.each do |moon| %>
       <tr>
-        <td><%= link_to moon.cluster.name, moon_path(moon) %></td>
+        <td><%= link_to moon.name, moon_path(moon) %></td>
         <td><%= moon.biome %></td>
         <td><%= moon.threat_level %></td>
         <td><%= link_to moon.cluster.system.sector.name, sector_path(moon.cluster.system.sector) %></td>
