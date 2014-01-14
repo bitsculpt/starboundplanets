@@ -11,6 +11,8 @@
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th>Added By</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>X Coord</th>
+      <th>Y coord</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +24,8 @@
         <td><%= asteroids.description %></td>
         <td><%= asteroids.username %></td>
         <td><%=l asteroids.created_at %></td>
+        <td><%= link_to asteroids.cluster.system.x_coord, system_path(asteroids.cluster.system) %></td>
+        <td><%= link_to asteroids.cluster.system.y_coord, system_path(asteroids.cluster.system) %></td>
         </td>
       </tr>
     <% end %>
