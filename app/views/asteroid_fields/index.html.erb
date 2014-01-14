@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to asteroids.cluster.name, asteroid_fields_path(asteroids) %></td>
         <td><%= asteroids.threat_level %></td>
-        <td><%= asteroids.cluster.system.sector.name %></td>
+        <td><%= link_to asteroids.cluster.system.sector.name, sector_path(asteroids.cluster.system.sector) %></td>
         <td><%= asteroids.description %></td>
         <td><%= asteroids.username %></td>
         <td><%=l asteroids.created_at %></td>
