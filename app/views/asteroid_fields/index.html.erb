@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th><%= model_class.human_attribute_name(:biome) %></th>
       <th><%= model_class.human_attribute_name(:threat_level) %></th>
       <th>Sector</th>
       <th><%= model_class.human_attribute_name(:description) %></th>
@@ -17,8 +16,7 @@
   <tbody>
     <% @asteroid_fields.each do |asteroids| %>
       <tr>
-        <td><%= link_to asteroids.cluster.name, asteroid_field_path(asteroid) %></td>
-        <td><%= asteroids.biome %></td>
+        <td><%= link_to asteroids.cluster.name, asteroid_fields_path(asteroids) %></td>
         <td><%= asteroids.threat_level %></td>
         <td><%= asteroids.cluster.system.sector.name %></td>
         <td><%= asteroids.description %></td>
