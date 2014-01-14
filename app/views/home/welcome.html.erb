@@ -2,6 +2,13 @@
 <div class="jumbotron">
   <h1> Welcome to Starbound Planets, <%= current_user.username %></h1>
   <p>Use this site to keep track of your favorite planets, moons, and asteroids and share them with the community!  Click the links below to get started adding to the list!</p>
+  <div class="container">
+    <%= link_to "Add Alpha Planet, Moon, or Asteroid", '/sector/1/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add Beta Planet, Moon, or Asteroid ", '/sector/2/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add Gamma Planet, Moon, or Asteroid ", '/sector/3/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add Delta Planet, Moon, or Asteroid ", '/sector/4/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add X Planet, Moon, or Asteroid ", '/sector/5/new', :class => "btn btn-primary"  %><br />
+</div>
 </div>
 <% else %>
 <div class="jumbotron">
