@@ -13,24 +13,23 @@
     <% end %>
 
 <%= form_for (@planet) do |f| %>
-<div>
+
     <%= f.label :name %>
     <%= f.text_area :name %>
-   <div>
-  <div>
+   
     <%= f.label :biome %>
    <%= f.select :biome, SpaceJunk.biomes, include_blank: true %>
-  </div>
+ 
   
 
-  <div>
+  
     <%= f.label :threat_level %>
    <%= f.select :threat_level, SpaceJunk.threat_levels, include_blank: true %>
-  </div>
-  <div>
+ 
+  
     <%= f.label :description %>
     <%= f.text_area :description %>
-   <div>
+   
   <%= f.hidden_field :cluster_id, value: @cluster.id %>
   <%= f.submit 'Create Planet' %>
 <%- end -%>
