@@ -1,24 +1,12 @@
-<% if user_signed_in? %>
-<div class="jumbotron">
-  <h1> Welcome to Starbound Planets, <%= current_user.username %></h1>
-  <p>Use this site to keep track of your favorite planets, moons, and asteroids and share them with the community!  Click the links below to get started adding to the list!</p>
-  <div class="container">
-    <%= link_to "Add Alpha Planet", '/sector/1/new', :class => "btn btn-primary"  %><br />
-<%= link_to "Add Beta Planet", '/sector/2/new', :class => "btn btn-primary"  %><br />
-<%= link_to "Add Gamma Planet", '/sector/3/new', :class => "btn btn-primary"  %><br />
-<%= link_to "Add Delta Planet", '/sector/4/new', :class => "btn btn-primary"  %><br />
+<%= link_to "Add Alpha Planet", '/sector/1/new', :class => "btn btn-primary"  %>
+<%= link_to "Add Beta Planet", '/sector/2/new', :class => "btn btn-primary"  %>
+<%= link_to "Add Gamma Planet", '/sector/3/new', :class => "btn btn-primary"  %>
+<%= link_to "Add Delta Planet", '/sector/4/new', :class => "btn btn-primary"  %>
 <%= link_to "Add X Planet", '/sector/5/new', :class => "btn btn-primary"  %><br />
-</div>
-</div>
-<% else %>
-<div class="jumbotron">
-  <h1> Welcome to Starbound Planets</h1>
-  <p>Use this site to keep track of your favorite planets, moons, and asteroids and share them with the community!</p>
-</div>
-<% end %>
 
+<br />
 <h2> Last 4 Planets </h2>
 
 <%= render 'last4planets' %> 
 
-<button type="button" class="btn btn-primary"><%= link_to "View all the Planets",  planets_path, :class => "btn btn-primary" %></button> <br>
+<%= link_to "View all the Planets",  planets_path, :class => "btn btn-primary" %>

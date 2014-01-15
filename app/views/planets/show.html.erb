@@ -17,8 +17,4 @@
   <dt><strong>Y Coord:</strong></dt>
   <dd><%= @planet.cluster.system.y_coord %></dd>
 </dl>
-<% if user_signed_in? and current_user.username == @planet.username %>
-<%= link_to "Edit this Planet", edit_planet_path %>
-<% else %>
-<p> Login to your account to edit this planet ( if it belongs to you!) </p>
-<% end %>
+
