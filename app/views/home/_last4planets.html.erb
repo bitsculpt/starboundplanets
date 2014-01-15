@@ -17,13 +17,13 @@
   <tbody>
     <% @planets.each do |planet| %>
       <tr>
-        <td><%= link_to planet.cluster.name, planet_path(planet) %></td>
+        <td><%= link_to planet.cluster.system.sector.name + " " + planet.cluster.system.name + " " + planet.cluster.name, planet_path(planet)  %></td>
         <td><%= planet.biome %></td>
         <td><%= planet.threat_level %></td>
         <td><%= link_to planet.cluster.system.sector.name, sector_path(planet.cluster.system.sector) %></td>
         <td><%= truncate(planet.description, :length => 50) %></td>
         <td><%= planet.username %></td>
-        <td><%= time_ago_in_words(planet.created_at) %> ago </td>
+        <td><%= time_ago_in_words(planet.created_at)  %> ago</td>
         <td><%= link_to planet.cluster.system.x_coord, system_path(planet.cluster.system) %></td>
         <td><%= link_to planet.cluster.system.y_coord, system_path(planet.cluster.system) %></td>
         </td>

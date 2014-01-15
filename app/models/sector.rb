@@ -5,10 +5,8 @@ class Sector < ActiveRecord::Base
     through: :systems
   has_many :planets,
     through: :systems
-  has_many :moons,
-    through: :systems
-  has_many :asteroid_fields,
-    through: :systems
+ 
+  
 
   validates_presence_of :name
 end

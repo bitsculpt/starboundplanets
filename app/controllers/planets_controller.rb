@@ -47,7 +47,7 @@ class PlanetsController < ApplicationController
   private
 
   def planet_params
-    params.require(:planet).permit(:biome, :threat_level, :username, :description, :cluster_id )
+    params.require(:planet).permit(:biome, :threat_level, :username, :description, :cluster_id, :name, :username )
   end
 
 end
