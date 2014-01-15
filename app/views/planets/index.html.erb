@@ -19,7 +19,7 @@
   <tbody>
     <% @planets.each do |planet| %>
       <tr>
-        <td><%= link_to planet.name, planet_path(planet) %></td>
+        <td><%= link_to planet.full_name, planet_path(planet) %></td>
         <td><%= planet.biome %></td>
         <td><%= planet.threat_level %></td>
         <td><%= link_to planet.cluster.system.sector.name, sector_path(planet.cluster.system.sector) %></td>
