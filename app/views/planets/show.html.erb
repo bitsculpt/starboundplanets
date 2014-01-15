@@ -18,3 +18,7 @@
   <dd><%= @planet.cluster.system.y_coord %></dd>
 </dl>
 
+<% if current_user.present? and @planet.user_id == current_user.id %>
+<%= link_to "Edit Planet", edit_planet_path %>
+<% end %>
+
