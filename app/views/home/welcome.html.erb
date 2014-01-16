@@ -1,18 +1,7 @@
-<% if user_signed_in? %>
-<h5> Welcome to Starbound Planets, <%= current_user.username %> </h5>
-<%= link_to "Add Alpha Planet", '/sector/1/new', :class => "btn btn-primary"  %>
-<%= link_to "Add Beta Planet", '/sector/2/new', :class => "btn btn-primary"  %>
-<%= link_to "Add Gamma Planet", '/sector/3/new', :class => "btn btn-primary"  %>
-<%= link_to "Add Delta Planet", '/sector/4/new', :class => "btn btn-primary"  %>
-<%= link_to "Add X Planet", '/sector/5/new', :class => "btn btn-primary"  %><br />
-<% end %>
-<br />
-<% if !user_signed_in? %>
 <h4> Sign Up to add a planet :) </h4>
-<% end %>
 <br />
 <h2> Last 10 Planets </h2>
 
-<%= render 'last10planets' %> 
+<%= render 'last10planets' %>
 
 <%= link_to "View all the Planets",  planets_path, :class => "btn btn-primary" %>
