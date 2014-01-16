@@ -1,14 +1,5 @@
 class HomeController < ApplicationController
-
   def welcome
-    if current_user
-      render action: :home
-    else
-      #stuff
-    end
+      @planets = Planet.all.order(created_at: :asc).limit(10)
   end
-
-  def home
-  end
-
 end

@@ -1,17 +1,14 @@
-<%- model_class = Planet -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
+<div class="table-responsive">
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th><%= model_class.human_attribute_name(:biome) %></th>
-      <th><%= model_class.human_attribute_name(:threat_level) %></th>
+      <th>Biome</th>
+      <th>Threat Level</th>
       <th>Sector</th>
       <th>Description</th>
       <th>Added By</th>
-      <th>Created At</th>
+      <th>Added</th>
       <th>X Coord</th>
       <th>Y Coord</th>
     </tr>
@@ -19,17 +16,17 @@
   <tbody>
     <% @planets.each do |planet| %>
       <tr>
-        <td><%= link_to planet.full_name, planet_path(planet) %></td>
+        <td><%= link_to planet.full_name, planet_path(planet)  %></td>
         <td><%= planet.biome %></td>
         <td><%= planet.threat_level %></td>
         <td><%= link_to planet.cluster.system.sector.name, sector_path(planet.cluster.system.sector) %></td>
-        <td><%= planet.description %></td>
+        <td><%= truncate(planet.description, :length => 50) %></td>
         <td><%= planet.user.username %></td>
-        <td><%= time_ago_in_words(planet.created_at) %> ago</td>
+        <td><%= time_ago_in_words(planet.created_at)  %> ago</td>
         <td><%= link_to planet.cluster.system.x_coord, system_path(planet.cluster.system) %></td>
         <td><%= link_to planet.cluster.system.y_coord, system_path(planet.cluster.system) %></td>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

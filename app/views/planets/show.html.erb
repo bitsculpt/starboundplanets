@@ -1,15 +1,24 @@
-<%- model_class = Planet -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
-
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @planet.cluster.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:biome) %>:</strong></dt>
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @planet.full_name %></dd>
+  
+  <dt><strong>Biome:</strong></dt>
   <dd><%= @planet.biome %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:threat_level) %>:</strong></dt>
+  
+  <dt><strong>Threat Level:</strong></dt>
   <dd><%= @planet.threat_level %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  
+  <dt><strong>X Coord:</strong></dt>
+  <dd><%= @planet.cluster.system.x_coord %></dd>
+  
+  <dt><strong>Y Coord:</strong></dt>
+  <dd><%= @planet.cluster.system.y_coord %></dd>
+
+  <dt><strong>Description:</strong></dt>
   <dd><%= @planet.description %></dd>
 </dl>
+
+<% if current_user.present? and @planet.user == current_user %>
+<%= link_to "Edit Planet", edit_planet_path %>
+<% end %>
+

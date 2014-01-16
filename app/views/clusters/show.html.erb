@@ -1,9 +1,4 @@
-<%= link_to "New Moon", new_cluster_moon_path(@cluster), :class => "button"  %><br />
+<%= link_to "Create Planet", new_cluster_planet_path(@cluster), :class => "btn btn-primary" %><br />
 
-<% if @cluster.planet.nil? %>
-  <%= link_to "Create Planet", new_cluster_planet_path(@cluster), :class => "button" %><br />
-<% end %>
 
-<% if @cluster.asteroid_field.nil? %>
-  <%= link_to "Create Asteroid Field", new_cluster_asteroid_field_path(@cluster) %>
-<% end %>
+
