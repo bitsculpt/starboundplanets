@@ -7,7 +7,9 @@
 <%= link_to "Add X Planet", '/sector/5/new', :class => "btn btn-primary"  %><br />
 <% end %>
 <br />
+<% if !user_signed_in? %>
 <h4> Sign Up to add a planet :) </h4>
+<% end %>
 <br />
 <h2> Last 10 Planets </h2>
 

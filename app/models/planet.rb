@@ -10,4 +10,5 @@ class Planet < ActiveRecord::Base
     cluster.system.sector.name + " " + cluster.system.name + " " + cluster.name + " " + name
   end
 
+  
 end
