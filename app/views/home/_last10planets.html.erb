@@ -25,7 +25,6 @@
         <td><%= time_ago_in_words(planet.created_at)  %> ago</td>
         <td><%= link_to planet.cluster.system.x_coord, system_path(planet.cluster.system) %></td>
         <td><%= link_to planet.cluster.system.y_coord, system_path(planet.cluster.system) %></td>
-        </td>
       </tr>
     <% end %>
   </tbody>
