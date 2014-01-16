@@ -1,3 +1,9 @@
+<% if @user.present? %>
+Planets Submitted by <%= @user.username %>
+<% else %>
+All Planets
+<% end %>
+
 <%- model_class = Planet -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>

@@ -17,6 +17,10 @@ Starboundplanets::Application.routes.draw do
 
   # resources :planets, only: [:show, :edit, :update]
 
+  resources :users, only: [] do
+    resources :planets, only: [:index]
+  end
+
 
   get 'sector/:sector_id/new', to: 'systems#new', as: 'new_sector_system'
 
