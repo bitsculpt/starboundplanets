@@ -1,5 +1,21 @@
-<h4> Sign Up to add a planet :) </h4>
-<br />
+<div class='header-wrap'>
+  <div class='header-text'>
+    <h1>Starbound</h1>
+    <h2>Planets</h2>
+    <%= form_for(:user, :url => session_path(:user))  do |f| %>
+      <div>
+        <%= f.text_field :username, :autofocus => true, :placeholder => "Username/Email" %>
+      </div>
+      <div>
+        <%= f.password_field :password, :placeholder => "Password" %>
+      </div>
+
+
+      <div><%= f.submit "Sign in" %></div>
+    <% end %>
+  </div>
+</div>
+
 <h2> Last 10 Planets </h2>
 
 <%= render 'last10planets' %>
