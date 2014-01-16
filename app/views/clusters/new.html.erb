@@ -15,7 +15,7 @@
 <%= form_for (@cluster) do |f| %>
 
   <div>
-    <%= f.label :name %>
+    <%= f.label :name %> Example: I, II, II, IV, V, etc
     <%= f.text_field :name %>
   </div>
   <%= f.hidden_field :system_id, value: @system.id %>
