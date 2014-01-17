@@ -21,10 +21,6 @@
     <dt><strong>Score:</strong></dt>
     <dd><%= @planet.average_score %></dd>
   </dl>
-</div>
-
-</dl>
-
 
 <% if current_user.present? and @planet.user == current_user %>
 <%= link_to "Edit Planet", edit_planet_path %>
@@ -39,3 +35,4 @@
   <%= f.hidden_field :score, value: -1 %>
   <%= f.submit 'Rate Down' %>
 <% end %>
+</div>
