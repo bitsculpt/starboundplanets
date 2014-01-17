@@ -5,8 +5,8 @@ class AddUserIdAndNameToPlanetsTable < ActiveRecord::Migration
   end
 
   def down
-  remove_column :planets, :user_id
-  remove_column :planets, :name
+    remove_column :planets, :user_id
+    remove_column :planets, :name
   end
 
 end

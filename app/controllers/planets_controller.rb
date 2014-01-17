@@ -11,7 +11,7 @@ class PlanetsController < ApplicationController
 
   def create
     @planet = current_user.planets.build(planet_params)
-    @planet.username = current_user.username
+    @planet.user = current_user
     if @planet.save
       redirect_to planet_path(@planet), notice: 'Cool! You created a planet!'
     else
@@ -32,7 +32,7 @@ class PlanetsController < ApplicationController
   def show
     @planet = Planet.find(params[:id])
   end
-  
+
   def edit
     @planet = Planet.find(params[:id])
   end

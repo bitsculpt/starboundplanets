@@ -1,13 +1,9 @@
-<% if @user.present? %>
-Planets Submitted by <%= @user.username %>
-<% else %>
-All Planets
-<% end %>
+<div class='page-center page-down'>
+  <%- model_class = Planet -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
 
-<%- model_class = Planet -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -23,7 +19,7 @@ All Planets
     </tr>
   </thead>
   <tbody>
-    <% @planets.each do |planet| %>
+  <% @planets.each do |planet| %>
       <tr>
         <td><%= link_to planet.full_name, planet_path(planet) %></td>
         <td><%= planet.biome %></td>
@@ -39,3 +35,4 @@ All Planets
     <% end %>
   </tbody>
 </table>
+</div>

@@ -1,45 +1,33 @@
-<h1>Add A System</h1>
+<div class='page-center page-down'>
+  <h1>Add A System</h1>
 
-  <% if @system.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@system.errors.count, "error") %> prohibited this issue from being saved:</h2>
+    <% if @system.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@system.errors.count, "error") %> prohibited this issue from being saved:</h2>
 
-        <ul>
-        <% @system.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+          <ul>
+          <% @system.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<%= form_for (@system) do |f| %>
+  <%= form_for (@system) do |f| %>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %> Example: Tai Chu , Majoris Jaive, etc.
-  </div>
-  <div>
-    <%= f.label :x_coord %>
-    <%= f.text_field :x_coord %>
-  </div>
-   <div>
-    <%= f.label :y_coord %>
-    <%= f.text_field :y_coord %>
-  </div>
-  <%= f.hidden_field :sector_id, value: @sector.id %>
-  <%= f.submit 'Create System' %>
-<%- end -%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %> Example: Tai Chu , Majoris Jaive, etc.
+    </div>
+    <div>
+      <%= f.label :x_coord %>
+      <%= f.text_field :x_coord %>
+    </div>
+     <div>
+      <%= f.label :y_coord %>
+      <%= f.text_field :y_coord %>
+    </div>
+    <%= f.hidden_field :sector_id, value: @sector.id %>
+    <%= f.submit 'Create System' %>
+  <%- end -%>
+</div>

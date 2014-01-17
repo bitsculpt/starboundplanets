@@ -15,3 +15,12 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(function(){
+
+  $(window).load(function(){
+    setTimeout(function(){ $('.alert').fadeOut() }, 1500);
+  });
+
+});

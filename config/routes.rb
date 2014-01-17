@@ -1,7 +1,9 @@
 Starboundplanets::Application.routes.draw do
   devise_for :users
 
-   resources :sectors, :systems, :clusters, :planets
+  resources :sectors, :systems, :clusters, :planets
+
+  resources :home, only: [:welcome]
 
   # resources :sectors, only: [:index, :show] do
   #   resources :systems, only: [:index, :new, :create]
@@ -32,5 +34,7 @@ Starboundplanets::Application.routes.draw do
 
   get 'cluster/:cluster_id/new_planet', to: 'planets#new', as: 'new_cluster_planet'
 
-  root 'home#welcome'
+  get '/welcome', to: 'home#welcome', as: 'welcome'
+
+  root 'home#home'
 end
