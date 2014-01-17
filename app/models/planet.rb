@@ -5,6 +5,17 @@ class Planet < ActiveRecord::Base
   validates_presence_of :biome
   validates_presence_of :threat_level
   validates_presence_of :cluster
+  has_many :ratings
+
+  def average_score
+    total_score = 0
+
+    ratings.each do |rating|
+      total_score += rating.score
+    end
+
+    total_score
+  end
 
   def full_name
     cluster.system.sector.name + " " + cluster.system.name + " " + cluster.name + " " + name
