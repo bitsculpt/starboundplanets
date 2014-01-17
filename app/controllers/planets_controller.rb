@@ -21,7 +21,12 @@ class PlanetsController < ApplicationController
   end
 
   def index
-    @planets = Planet.all
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @planets = @user.planets
+    else
+      @planets = Planet.all
+    end
   end
 
   def show
