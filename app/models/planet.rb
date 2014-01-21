@@ -5,7 +5,6 @@ class Planet < ActiveRecord::Base
 
   validates_presence_of :biome
   validates_presence_of :threat_level
-  validates_presence_of :cluster
   validates_presence_of :system
   validates_presence_of :orbit
   validates_presence_of :x_coord
@@ -27,7 +26,7 @@ class Planet < ActiveRecord::Base
   end
 
   def full_name
-    cluster.system.sector.name + " " + cluster.system.name + " " + cluster.name + " " + name
+    "#{self.sector.name} #{system} #{orbit} #{name}"
   end
 
 
