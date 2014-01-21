@@ -4,8 +4,12 @@ describe Planet do
 
   let(:blank) { [nil, ""] }
 
-  it { should belong_to(:cluster) }
+  it { should belong_to(:sector) }
 
+  it { should validate_presence_of :system }
+  it { should validate_presence_of :orbit }
+  it { should validate_presence_of :x_coord }
+  it { should validate_presence_of :y_coord }
 
   it { should have_valid(:biome).when("biome example") }
   it { should_not have_valid(:biome).when(*blank) }
