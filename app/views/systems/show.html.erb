@@ -1,8 +1,0 @@
-<div class='page-center page-down'>
-  <%= link_to "New Cluster", new_system_cluster_path(@system), :class => "btn btn-primary"  %><br />
-
-  <% @system.clusters.each do |cluster| %>
-    <p><%= cluster.name %></p>
-    <%= link_to cluster.name, cluster_path(cluster) %>
-  <% end %>
-</div>
