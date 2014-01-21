@@ -3,7 +3,6 @@ class PlanetsController < ApplicationController
   def new
     if user_signed_in?
       @planet = Planet.new
-      @cluster = Cluster.find(params[:cluster_id])
     else
       redirect_to root_path
     end
@@ -15,7 +14,6 @@ class PlanetsController < ApplicationController
     if @planet.save
       redirect_to planet_path(@planet), notice: 'Cool! You created a planet!'
     else
-      @cluster = Cluster.find(@planet.cluster_id)
       render "new"
     end
   end
@@ -47,12 +45,11 @@ class PlanetsController < ApplicationController
     end
   end
 
-
-
   private
 
   def planet_params
-    params.require(:planet).permit(:biome, :threat_level, :description, :cluster_id, :name )
+    params.require(:planet).permit(:biome, :threat_level, :description, :sector_id,
+                                   :system, :orbit, :name, :x_coord, :y_coord )
   end
 
 end
