@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117143741) do
+ActiveRecord::Schema.define(version: 20140121195814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "clusters", force: true do |t|
-    t.string   "name",       null: false
-    t.integer  "system_id",  null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "planets", force: true do |t|
     t.string   "biome",        null: false
@@ -32,6 +25,10 @@ ActiveRecord::Schema.define(version: 20140117143741) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "name"
+    t.string   "system"
+    t.string   "orbit"
+    t.integer  "x_coord"
+    t.integer  "y_coord"
   end
 
   create_table "ratings", force: true do |t|
@@ -44,15 +41,6 @@ ActiveRecord::Schema.define(version: 20140117143741) do
 
   create_table "sectors", force: true do |t|
     t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "systems", force: true do |t|
-    t.string   "name",       null: false
-    t.integer  "x_coord",    null: false
-    t.integer  "y_coord",    null: false
-    t.integer  "sector_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
