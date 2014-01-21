@@ -1,38 +1,25 @@
-<%= form_for @planet, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :biome, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :biome, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :threat_level, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :threat_level, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cluster_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cluster_id, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :username, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :username, :class => 'text_field' %>
-    </div>
-  </div>
+<%= form_for (planet) do |f| %>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                planets_path, :class => 'btn' %>
-  </div>
-<% end %>
+  <%= f.label :name %>
+  <%= f.collection_select :sector_id, Sector.all, :id, :name %>
+  <%= f.text_field :system, placeholder: "Krism 3248" %>
+  <%= f.select :orbit, SpaceJunk.orbit_names %>
+  <%= f.select :name, SpaceJunk.planet_names %>
+
+  <%= f.label :biome %>
+  <%= f.select :biome, SpaceJunk.biomes, include_blank: true %>
+
+  <%= f.label :threat_level %>
+  <%= f.select :threat_level, SpaceJunk.threat_levels, include_blank: true %>
+
+  <%= f.label :x_coordinate %>
+  <%= f.number_field :x_coord %>
+
+  <%= f.label :y_coordinate %>
+  <%= f.number_field :y_coord %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit 'Create Planet' %>
+<%- end -%>

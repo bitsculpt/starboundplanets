@@ -13,29 +13,6 @@
         </div>
       <% end %>
 
-  <%= form_for (@planet) do |f| %>
+  <%= render 'planets/form', planet: @planet %>
 
-    <%= f.label :name %>
-    <%= f.collection_select :sector_id, Sector.all, :id, :name %>
-    <%= f.text_field :system, placeholder: "Krism 3248" %>
-    <%= f.select :orbit, SpaceJunk.orbit_names %>
-    <%= f.select :name, SpaceJunk.planet_names %>
-
-    <%= f.label :biome %>
-    <%= f.select :biome, SpaceJunk.biomes, include_blank: true %>
-
-    <%= f.label :threat_level %>
-    <%= f.select :threat_level, SpaceJunk.threat_levels, include_blank: true %>
-
-    <%= f.label :x_coordinate %>
-    <%= f.number_field :x_coord %>
-
-    <%= f.label :y_coordinate %>
-    <%= f.number_field :y_coord %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-
-    <%= f.submit 'Create Planet' %>
-  <%- end -%>
 </div>

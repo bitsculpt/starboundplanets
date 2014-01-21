@@ -1,32 +1,34 @@
 <div class="table-responsive">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Biome</th>
-      <th>Threat Level</th>
-      <th>Sector</th>
-      <th>Description</th>
-      <th>Added By</th>
-      <th>Added</th>
-      <th>X Coord</th>
-      <th>Y Coord</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @planets.each do |planet| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= link_to planet.full_name, planet_path(planet)  %></td>
-        <td><%= planet.biome %></td>
-        <td><%= planet.threat_level %></td>
-        <td><%= link_to planet.cluster.system.sector.name, sector_path(planet.cluster.system.sector) %></td>
-        <td><%= truncate(planet.description, :length => 50) %></td>
-        <td><%= planet.user.username %></td>
-        <td><%= time_ago_in_words(planet.created_at)  %> ago</td>
-        <td><%= link_to planet.cluster.system.x_coord, system_path(planet.cluster.system) %></td>
-        <td><%= link_to planet.cluster.system.y_coord, system_path(planet.cluster.system) %></td>
+        <th>Name</th>
+        <th>Biome</th>
+        <th>Threat Level</th>
+        <th>Sector</th>
+        <th>Description</th>
+        <th>Added By</th>
+        <th>Added</th>
+        <th>X Coord</th>
+        <th>Y Coord</th>
+        <th>Avg. Rating</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @planets.each do |planet| %>
+        <tr>
+          <td><%= link_to planet.full_name, planet_path(planet)  %></td>
+          <td><%= planet.biome %></td>
+          <td><%= planet.threat_level %></td>
+          <td><%= link_to planet.sector.name, sector_path(planet.sector) %></td>
+          <td><%= truncate(planet.description, :length => 50) %></td>
+          <td><%= planet.user.username %></td>
+          <td><%= time_ago_in_words(planet.created_at)  %> ago</td>
+          <td><%= planet.x_coord %></td>
+          <td><%= planet.y_coord %></td>
+          <td><%= planet.average_score %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
