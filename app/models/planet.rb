@@ -13,6 +13,8 @@ class Planet < ActiveRecord::Base
   validates :x_coord, :numericality => {:only_integer => true}
   validates :y_coord, :numericality => {:only_integer => true}
 
+  validates_inclusion_of :threat_level, in: 1..10
+
   has_many :ratings
 
   def average_score

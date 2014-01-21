@@ -4,10 +4,11 @@ class DropSystemAndClusterAndAddToPlanets < ActiveRecord::Migration
     drop_table :systems
     drop_table :clusters
 
-    add_column :planets, :system, :string
-    add_column :planets, :orbit, :string
-    add_column :planets, :x_coord, :integer
-    add_column :planets, :y_coord, :integer
+    add_column :planets, :system, :string, null: false
+    add_column :planets, :orbit, :string, null: false
+    add_column :planets, :x_coord, :integer, null: false
+    add_column :planets, :y_coord, :integer, null: false
+    remove_column :planets, :cluster_id
   end
 
   def down
@@ -30,6 +31,7 @@ class DropSystemAndClusterAndAddToPlanets < ActiveRecord::Migration
     remove_column :planets, :orbit
     remove_column :planets, :x_coord
     remove_column :planets, :y_coord
+    add_column :planets, :cluster_id, :integer, null: false
   end
 
 end

@@ -19,17 +19,16 @@ ActiveRecord::Schema.define(version: 20140121200548) do
   create_table "planets", force: true do |t|
     t.string   "biome",        null: false
     t.integer  "threat_level", null: false
-    t.integer  "cluster_id",   null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "name"
-    t.string   "system"
-    t.string   "orbit"
-    t.integer  "x_coord"
-    t.integer  "y_coord"
-    t.integer  "sector_id"
+    t.string   "system",       null: false
+    t.string   "orbit",        null: false
+    t.integer  "x_coord",      null: false
+    t.integer  "y_coord",      null: false
+    t.integer  "sector_id",    null: false
   end
 
   create_table "ratings", force: true do |t|

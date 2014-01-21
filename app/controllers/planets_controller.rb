@@ -45,12 +45,11 @@ class PlanetsController < ApplicationController
     end
   end
 
-
-
   private
 
   def planet_params
-    params.require(:planet).permit(:biome, :threat_level, :description, :sector_id, :system, :orbit, :name )
+    params.require(:planet).permit(:biome, :threat_level, :description, :sector_id,
+                                   :system, :orbit, :name, :x_coord, :y_coord )
   end
 
 end

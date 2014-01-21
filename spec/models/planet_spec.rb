@@ -16,6 +16,9 @@ describe Planet do
 
   it { should have_valid(:threat_level).when(3) }
   it { should_not have_valid(:threat_level).when(*blank) }
+
+  it { should have_valid(:threat_level).when(*((1..10).to_a)) }
+  it { should_not have_valid(:threat_level).when(0,11,-10,100) }
 end
 
 
