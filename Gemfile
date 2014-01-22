@@ -37,6 +37,7 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
 gem 'acts-as-taggable-on'
+gem 'sendgrid'
 
 group :production do
   gem 'rails_12factor'
