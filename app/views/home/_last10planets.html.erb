@@ -22,7 +22,7 @@
           <td><%= planet.threat_level %></td>
           <td><%= link_to planet.sector.name, sector_path(planet.sector) %></td>
           <td><%= truncate(planet.description, :length => 50) %></td>
-          <td><%= planet.user.username %></td>
+          <td><%= link_to planet.user.username, planet.user %></td>
           <td><%= time_ago_in_words(planet.created_at)  %> ago</td>
           <td><%= planet.x_coord %></td>
           <td><%= planet.y_coord %></td>

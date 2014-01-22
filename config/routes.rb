@@ -5,21 +5,7 @@ Starboundplanets::Application.routes.draw do
 
   resources :home, only: [:welcome]
 
-  # resources :sectors, only: [:index, :show] do
-  #   resources :systems, only: [:index, :new, :create]
-  # end
-
-  # resources :systems, only: [:show, :edit, :update] do
-  #   resources :clusters, only: [:index, :new, :create]
-  # end
-
-  # resources :clusters, only: [:show, :edit, :update] do
-  #   resources :planets, only: [:index, :new, :create]
-  # end
-
-  # resources :planets, only: [:show, :edit, :update]
-
-  resources :users, only: [] do
+  resources :users, only: [:show] do
     resources :planets, only: [:index]
   end
 
