@@ -11,6 +11,7 @@ class PlanetsController < ApplicationController
   def create
     @planet = current_user.planets.build(planet_params)
     @planet.user = current_user
+    @planet.tag_list.add(params["planet"]["tags"])
     if @planet.save
       redirect_to planet_path(@planet), notice: 'Cool! You created a planet!'
     else
@@ -39,6 +40,11 @@ class PlanetsController < ApplicationController
     @planet = Planet.find(params[:id])
 
     if @planet.update(planet_params)
+      @planet.tags.each do |tag|
+        tag.destroy
+      end
+      @planet.tag_list.add(params["planet"]["tags"])
+      @planet.save
       redirect_to @planet
     else
       render 'edit'

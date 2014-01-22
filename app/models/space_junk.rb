@@ -17,4 +17,11 @@ class SpaceJunk
      'XI','XII','XIII','XIV','XV',
      'XVI','XVII','XVIII','XIX','XX']
   end
+
+  def self.tags
+    ['Avian Dungeon','Apex Dungeon','Avian Village','Apex Village','No Air','Low Gravity','Clear','Rain','Snow',
+     'Acid Rain','Meteor Shower','Sparkle Shower','Crypt','Flying Airship','Hi-Tech Chest','Human Village',
+     'Floran Village','Hylotl Village','Glitch']
+  end
+
 end
