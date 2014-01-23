@@ -11,7 +11,7 @@ class PlanetsController < ApplicationController
   def create
     @planet = current_user.planets.build(planet_params)
     @planet.user = current_user
-    @planet.tag_list.add(params["planet"]["tags"])
+    @planet.tag_list.add(valid_tags)
     if @planet.save
       redirect_to planet_path(@planet), notice: 'Cool! You created a planet!'
     else
@@ -43,7 +43,7 @@ class PlanetsController < ApplicationController
       @planet.tags.each do |tag|
         tag.destroy
       end
-      @planet.tag_list.add(params["planet"]["tags"])
+      @planet.tag_list.add(valid_tags)
       @planet.save
       redirect_to @planet
     else
@@ -56,6 +56,10 @@ class PlanetsController < ApplicationController
   def planet_params
     params.require(:planet).permit(:biome, :threat_level, :description, :sector_id,
                                    :system, :orbit, :name, :x_coord, :y_coord )
+  end
+
+  def valid_tags
+    params["planet"]["tags"].reject { |tag| !SpaceJunk.tags.include?(tag) }
   end
 
 end
