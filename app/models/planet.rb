@@ -17,6 +17,8 @@ class Planet < ActiveRecord::Base
 
   has_many :ratings
 
+  acts_as_taggable
+
   def average_score
     total_score = 0
 

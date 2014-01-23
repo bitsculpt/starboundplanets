@@ -15,11 +15,17 @@
     <dt><strong>Y Coord:</strong></dt>
     <dd><%= @planet.y_coord %></dd>
 
-    <dt><strong>Description:</strong></dt>
-    <dd><%= @planet.description %></dd>
+    <dt><strong>Added by:</strong></dt>
+    <dd><%= link_to @planet.user.username, @planet.user %></dd>
 
     <dt><strong>Avg. Rating:</strong></dt>
     <dd><%= @planet.average_score %></dd>
+
+    <dt><strong>Description:</strong></dt>
+    <dd><%= @planet.description %></dd>
+
+    <dt><strong>Tags:</strong></dt>
+    <dd><%= @planet.tags.collect {|tag| tag.name }.join(', ') %></dd>
   </dl>
 
 <% if current_user.present? and @planet.user == current_user %>
