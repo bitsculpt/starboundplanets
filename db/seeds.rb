@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+sectors = ['Alpha', 'Beta', 'Gamma','Delta', 'X']
+
+unless Sector.count == sectors.size
+  sectors.each do |sector|
+    Sector.create(name: sector)
+  end
+end
