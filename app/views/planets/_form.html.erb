@@ -22,7 +22,7 @@
   <%= f.select :tags, SpaceJunk.tags.sort, {}, { multiple: true } %>
 
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description %><br>
 
   <%= f.submit :class => "btn btn-primary" %>
 <%- end -%>
